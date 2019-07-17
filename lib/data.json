@@ -1,0 +1,47 @@
+[
+    {
+        "firstname": "Akash",
+        "lastname": "t",
+        "email": "Akash@gmail.com",
+        "phone": "993-522",
+        "location": "golf",
+        "age": "22",
+        "relation": ""
+    },
+    {
+        "firstname": "philip",
+        "lastname": "h",
+        "email": "philip@gmail.com",
+        "phone": "993-521",
+        "location": "golf",
+        "age": "17",
+        "relation": ""
+    },
+    {
+        "firstname": "charles",
+        "lastname": "t",
+        "email": "charl@gmail.com",
+        "phone": "122-0",
+        "location": "golf",
+        "age": "32",
+        "relation": ""
+    },
+    {
+        "firstname": "shant",
+        "lastname": "m",
+        "email": "methre@gmail.com",
+        "phone": "19-99",
+        "location": "bangalor",
+        "age": "23",
+        "relation": ""
+    },
+    {
+        "firstname": "arvindh",
+        "lastname": "Akash",
+        "email": "arvindh@gmail.com",
+        "phone": "1900-3",
+        "location": "bangalor",
+        "age": "24",
+        "relation": ""
+    }
+]
