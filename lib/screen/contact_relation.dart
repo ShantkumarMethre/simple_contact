@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:simple_contact/model.dart';
+import 'package:simple_contact/screen/contact_list_screen.dart';
+
 import 'package:simple_contact/screen/slide_drawer.dart';
 
 import '../fetch_data.dart';
@@ -16,10 +18,10 @@ class ContactRelation extends StatefulWidget {
 }
 
 class ContactRelationState extends State<ContactRelation> {
-  int _counter = 0;
   bool clickToseeContact = false;
   List<Contact> x = [];
   List<Contact> y = [];
+
   int len1;
   int len2;
   File file;
@@ -42,16 +44,11 @@ class ContactRelationState extends State<ContactRelation> {
       x.addAll(FetchData().undefined(file));
       y.addAll(FetchData().related(file));
     });
+
     if (y.length != 0) print("y ${y[0].relation}");
     print("y ${x[0].relation}");
   }
 
-  void _incrementCounter() {
-    FetchData().editRelation(file, "120", "mother");
-    getData();
-  }
-
-  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -175,8 +172,19 @@ class ContactRelationState extends State<ContactRelation> {
                                                 color: Colors.lightBlueAccent,
                                                 margin: EdgeInsets.all(0),
                                                 child: Center(
-                                                    child: Text(
-                                                        "chose your friends")),
+                                                    child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: <Widget>[
+                                                    Text("chose your friends"),
+                                                    Icon(
+                                                      Icons
+                                                          .keyboard_arrow_right,
+                                                      color: Colors.black,
+                                                      size: 26,
+                                                    ),
+                                                  ],
+                                                )),
                                               ),
                                             ),
                                           )
@@ -283,8 +291,20 @@ class ContactRelationState extends State<ContactRelation> {
                                                   color: Colors.lightBlueAccent,
                                                   margin: EdgeInsets.all(0),
                                                   child: Center(
-                                                      child: Text(
-                                                          "choose from the list")),
+                                                      child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: <Widget>[
+                                                      Text(
+                                                          "chose from the list"),
+                                                      Icon(
+                                                        Icons
+                                                            .keyboard_arrow_right,
+                                                        color: Colors.black,
+                                                        size: 26,
+                                                      ),
+                                                    ],
+                                                  )),
                                                 ),
                                               ),
                                             ),
@@ -310,7 +330,12 @@ class ContactRelationState extends State<ContactRelation> {
       floatingActionButton: new Builder(builder: (context) {
         return new FloatingActionButton(
           onPressed: () {
-            Scaffold.of(context).openDrawer();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      ContactListScreen(related: y, unidentified: x)),
+            );
           },
           child: new Icon(Icons.person),
         );
