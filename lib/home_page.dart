@@ -19,8 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool clickToseeContact = false;
   List<Contact> x = [];
   List<Contact> y = [];
-  int len1;
-  int len2;
+
   File file;
 
   @override
